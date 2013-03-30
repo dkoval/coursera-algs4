@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.coursera.algs4</groupId>
+        <artifactId>algs4-part1</artifactId>
+        <version>1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>week5-kdtree</artifactId>
+    <name>Programming Assignment 5: Kd-Trees</name>
+    <description>
+        Write a data type to represent a set of points in the unit square (all points have x- and y-coordinates between 0 and 1)
+        using a 2d-tree to support efficient range search (find all of the points contained in a query rectangle) and nearest
+        neighbor search (find a closest point to a query point).
+    </description>
+
+</project>
