@@ -17,4 +17,16 @@
         Write a generic data type for a deque and a randomized queue.
     </description>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <finalName>queues</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
