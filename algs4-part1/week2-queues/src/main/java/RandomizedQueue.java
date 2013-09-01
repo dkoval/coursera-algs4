@@ -42,7 +42,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
      * @return whether the queue is empty or not.
      */
     public boolean isEmpty() {
-        return size == 0;
+        return (size == 0);
     }
 
     /**
@@ -116,7 +116,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         // get item with index m
         Item item = items[index];
 
-        if (size - 1 != index) {
+        if ((size - 1) != index) {
             // move last item in the array to index m
             items[index] = items[size - 1];
         }
@@ -125,7 +125,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         size--;
         // shrink size of array if necessary
-        if (size > 0 && size == items.length / 4) {
+        if ((size > 0) && (size == items.length / 4)) {
             resize(items.length / 2);
         }
         return item;

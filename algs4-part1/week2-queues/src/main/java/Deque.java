@@ -65,7 +65,7 @@ public class Deque<Item> implements Iterable<Item> {
      * @return whether the deque is empty or not.
      */
     public boolean isEmpty() {
-        return size == 0;
+        return (size == 0);
     }
 
     /**
@@ -198,7 +198,7 @@ public class Deque<Item> implements Iterable<Item> {
 
         @Override
         public boolean hasNext() {
-            return current != null;
+            return (current != null);
         }
 
         @Override
