@@ -66,7 +66,7 @@ public class Percolation {
     }
 
     private boolean isValidIndex(int index) {
-        return index >= 1 && index <= N;
+        return (index >= 1) && (index <= N);
     }
 
     /**
@@ -105,7 +105,7 @@ public class Percolation {
         }
 
         // site (i, j) "up" open neighbor
-        if (i > 1 && isOpen(i - 1, j)) {
+        if ((i > 1) && isOpen(i - 1, j)) {
             percolationHandle.union(siteIndex, convertTo1DIndex(i - 1, j));
             backwashHandle.union(siteIndex, convertTo1DIndex(i - 1, j));
         }
@@ -122,13 +122,13 @@ public class Percolation {
         }
 
         // site (i, j) "left" open neighbor
-        if (j > 1 && isOpen(i, j - 1)) {
+        if ((j > 1) && isOpen(i, j - 1)) {
             percolationHandle.union(siteIndex, convertTo1DIndex(i, j - 1));
             backwashHandle.union(siteIndex, convertTo1DIndex(i, j - 1));
         }
 
         // site (i, j) "right" open neighbor
-        if (j < N && isOpen(i, j + 1)) {
+        if ((j < N) && isOpen(i, j + 1)) {
             percolationHandle.union(siteIndex, convertTo1DIndex(i, j + 1));
             backwashHandle.union(siteIndex, convertTo1DIndex(i, j + 1));
         }

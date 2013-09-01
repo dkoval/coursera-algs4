@@ -16,7 +16,7 @@ public class PercolationStats {
      * @throws IllegalArgumentException if either N <= 0 or T <= 0.
      */
     public PercolationStats(int N, int T) throws IllegalArgumentException {
-        if (N <= 0 || T <= 0) {
+        if ((N <= 0) || (T <= 0)) {
             throw new IllegalArgumentException("Both N and T arguments must be positive integers. " +
                     "But got N = " + N + ", T = " + T);
         }
