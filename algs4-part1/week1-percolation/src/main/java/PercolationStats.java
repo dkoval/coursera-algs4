@@ -9,6 +9,33 @@ public class PercolationStats {
     private final double[] results;
 
     /**
+     * Summary of this experiment.
+     */
+    private final Summary summary;
+
+    private class Summary {
+
+        private final double mean;
+
+        private final double stddev;
+
+        private final double confidenceLo;
+
+        private final double confidenceHi;
+
+        private Summary() {
+            // Sample mean + standard deviation
+            mean = StdStats.mean(results);
+            stddev = StdStats.stddev(results);
+            // Confidence interval
+            double delta = 1.96 * stddev / Math.sqrt(results.length);
+            confidenceLo = mean - delta;
+            confidenceHi = mean + delta;
+        }
+
+    }
+
+    /**
      * Perform T independent computational experiments on an N-by-N grid.
      *
      * @param N the N-by-N grid dimension.
@@ -21,8 +48,9 @@ public class PercolationStats {
                     "But got N = " + N + ", T = " + T);
         }
 
-        this.results = new double[T];
+        results = new double[T];
         performMonteCarloSimulation(N, T);
+        summary = new Summary();
     }
 
     /**
@@ -76,32 +104,28 @@ public class PercolationStats {
      * @return Sample mean of percolation threshold.
      */
     public double mean() {
-        return StdStats.mean(results);
+        return summary.mean;
     }
 
     /**
      * @return Sample standard deviation of percolation threshold.
      */
     public double stddev() {
-        return StdStats.stddev(results);
+        return summary.stddev;
     }
 
     /**
      * @return Lower bound of the 95% confidence interval.
      */
     public double confidenceLo() {
-        return mean() - delta();
-    }
-
-    private double delta() {
-        return 1.96 * stddev() / Math.sqrt(results.length);
+        return summary.confidenceLo;
     }
 
     /**
      * @return Upper bound of the 95% confidence interval.
      */
     public double confidenceHi() {
-        return mean() + delta();
+        return summary.confidenceHi;
     }
 
     /**
