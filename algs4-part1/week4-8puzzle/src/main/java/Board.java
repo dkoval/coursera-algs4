@@ -69,7 +69,7 @@ public class Board {
     }
 
     private int goalPositionOf(int i, int j) {
-        assert (i >= 0 && i <= N - 1) && (j >= 0 && j <= N - 1);
+        assert (i >= 0) && (i <= N - 1) && (j >= 0) && (j <= N - 1);
         return i * N + j + 1;
     }
 
@@ -109,7 +109,7 @@ public class Board {
             for (int j = 0; j < N; j++) {
                 // the only valid situation where blocks[i][j] might not equal to goalPositionOf(i, j) is
                 // if i = j = N - 1
-                if ((blocks[i][j] != goalPositionOf(i, j)) && (i != N - 1 || j != N - 1)) {
+                if ((blocks[i][j] != goalPositionOf(i, j)) && ((i != N - 1) || (j != N - 1))) {
                     return false;
                 }
             }
