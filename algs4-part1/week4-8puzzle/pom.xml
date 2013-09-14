@@ -17,4 +17,16 @@
         Write a program to solve the 8-puzzle problem (and its natural generalizations) using the A* search algorithm.
     </description>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <finalName>8puzzle</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
