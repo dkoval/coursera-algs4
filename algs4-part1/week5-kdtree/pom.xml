@@ -19,4 +19,16 @@
         neighbor search (find a closest point to a query point).
     </description>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <finalName>kdtree</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
