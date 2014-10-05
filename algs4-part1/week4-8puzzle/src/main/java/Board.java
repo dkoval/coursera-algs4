@@ -108,8 +108,8 @@ public class Board {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 // the only valid situation where blocks[i][j] might not equal to goalPositionOf(i, j) is
-                // if i = j = N - 1
-                if ((blocks[i][j] != goalPositionOf(i, j)) && ((i != N - 1) || (j != N - 1))) {
+                // if i = j = (N - 1), i.e. the blank square appears at the bottom right corner of the board
+                if ((blocks[i][j] != goalPositionOf(i, j)) && (i != N - 1) && (j != N - 1)) {
                     return false;
                 }
             }
@@ -242,5 +242,4 @@ public class Board {
         }
         return s.toString();
     }
-
 }

@@ -59,7 +59,6 @@ public class Solver {
         public int compareTo(SearchNode that) {
             return this.priority - that.priority;
         }
-
     }
 
     /**
@@ -178,5 +177,4 @@ public class Solver {
             }
         }
     }
-
 }
