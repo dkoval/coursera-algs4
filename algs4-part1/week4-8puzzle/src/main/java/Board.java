@@ -109,12 +109,16 @@ public class Board {
             for (int j = 0; j < N; j++) {
                 // the only valid situation where blocks[i][j] might not equal to goalPositionOf(i, j) is
                 // if i = j = (N - 1), i.e. the blank square appears at the bottom right corner of the board
-                if ((blocks[i][j] != goalPositionOf(i, j)) && (i != N - 1) && (j != N - 1)) {
+                if (!isBlankSquareGoalPos(i, j) && (blocks[i][j] != goalPositionOf(i, j))) {
                     return false;
                 }
             }
         }
         return true;
+    }
+
+    private boolean isBlankSquareGoalPos(int i, int j) {
+        return (i == N - 1) && (j == N - 1) && (blocks[i][j] == 0);
     }
 
     /**
