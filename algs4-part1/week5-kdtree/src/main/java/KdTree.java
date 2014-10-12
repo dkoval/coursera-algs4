@@ -115,8 +115,7 @@ public class KdTree {
     }
 
     private boolean isSmallerThanPointInNode(Point2D p, Node node) {
-        int cmp = node.vertical ? Point2D.X_ORDER.compare(p, node.p) : Point2D.Y_ORDER.compare(p, node.p);
-        return (cmp < 0);
+        return node.vertical ? p.x() < node.p.x() : p.y() < node.p.y();
     }
 
     /**
