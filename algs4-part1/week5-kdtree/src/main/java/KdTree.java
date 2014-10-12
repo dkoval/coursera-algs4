@@ -272,5 +272,4 @@ public class KdTree {
 
         return nearestPointCandidate;
     }
-
 }
