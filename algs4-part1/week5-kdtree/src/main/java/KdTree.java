@@ -105,7 +105,7 @@ public class KdTree {
         // then at the next level, we use the y-coordinate (if the point to be inserted has a smaller y-coordinate
         // than the point in the node, go left; otherwise go right);
         // then at the next level the x-coordinate, and so forth.
-        if (isSmallerThanPointInNode(p, node)) {
+        if (isLessThanPointInNode(node, p)) {
             node.left = doInsert(node.left, p, !node.vertical);
         } else {
             node.right = doInsert(node.right, p, !node.vertical);
@@ -114,7 +114,7 @@ public class KdTree {
         return node;
     }
 
-    private boolean isSmallerThanPointInNode(Point2D p, Node node) {
+    private boolean isLessThanPointInNode(Node node, Point2D p) {
         return node.vertical ? p.x() < node.p.x() : p.y() < node.p.y();
     }
 
@@ -125,16 +125,21 @@ public class KdTree {
      * @return <code>true</code> if the 2d-tree contains the point p, <code>false</code> otherwise.
      */
     public boolean contains(Point2D p) {
-        Node node = root;
-        while (node != null) {
-            if (p.equals(node.p)) {
-                return true;
-            }
+        return doContains(root, p);
+    }
 
-            node = isSmallerThanPointInNode(p, node) ? node.left : node.right;
+    private boolean doContains(Node node, Point2D p) {
+        if (node == null) {
+            return false;
         }
 
-        return false;
+        if (p.equals(node.p)) {
+            return true;
+        }
+
+        return isLessThanPointInNode(node, p)
+                ? doContains(node.left, p)
+                : doContains(node.right, p);
     }
 
     /**
@@ -259,7 +264,7 @@ public class KdTree {
             RectHV leftNodeRect = leftNodeRect(node, nodeRect);
             RectHV rightNodeRect = rightNodeRect(node, nodeRect);
 
-            if (isSmallerThanPointInNode(queryPoint, node)) {
+            if (isLessThanPointInNode(node, queryPoint)) {
                 // explore left subtree first
                 nearestPointCandidate = doNearest(node.left, leftNodeRect, queryPoint, nearestPointCandidate);
                 nearestPointCandidate = doNearest(node.right, rightNodeRect, queryPoint, nearestPointCandidate);
