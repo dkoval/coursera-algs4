@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!-- TODO: add modules here -->
+        <module>week1-wordnet</module>
     </modules>
 
 </project>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.coursera.algs4</groupId>
+        <artifactId>algs4-part2</artifactId>
+        <version>1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>week1-wordnet</artifactId>
+    <name>Programming Assignment 1: WordNet</name>
+    <description>
+        The  task is to build the wordnet digraph: each vertex v is an integer that represents a synset,
+        and each directed edge v→w represents that w is a hypernym of v.
+        The wordnet digraph is a rooted DAG: it is acylic and has one vertex that is an ancestor of every other vertex.
+        However, it is not necessarily a tree because a synset can have more than one hypernym.
+    </description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <finalName>wordnet</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
