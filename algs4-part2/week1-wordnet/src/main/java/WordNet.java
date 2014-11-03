@@ -145,14 +145,16 @@ public class WordNet {
     }
 
     private void checkRootedDAG(Digraph g) {
-        int possibleRoots = 0;
+        boolean rooted = false;
         for (int i = 0; i < g.V(); i++) {
             if (!g.adj(i).iterator().hasNext()) {
-                possibleRoots++;
+                // there must be only one root
+                if (rooted) {
+                    throw new IllegalArgumentException("Not a rooted DAG");
+                } else {
+                    rooted = true;
+                }
             }
-        }
-        if (possibleRoots != 1) {
-            throw new IllegalArgumentException("Not a rooted DAG");
         }
     }
 
